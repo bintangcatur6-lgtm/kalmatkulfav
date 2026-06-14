@@ -1,6 +1,7 @@
 # Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan
 
 ## 1. Titik Awal
+LINK GOOGLE COLLAB :https://colab.research.google.com/drive/1sHsEPvt3xSFJ3mLpPtMfcieIT9eAjrzG?usp=sharing
 
 Objek awal berupa persegi dengan titik:
 
