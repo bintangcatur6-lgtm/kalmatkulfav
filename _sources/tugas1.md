@@ -1,4 +1,4 @@
-# Tugas Awal (2)
+# Tugas Sistem Persamaan Linear
 
 ini gambar menggunakan geogyebra
 ![alt text](image.png)
