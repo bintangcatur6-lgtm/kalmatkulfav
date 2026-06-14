@@ -1,4 +1,4 @@
-# TUGAS UTS Eliminasi Gausian - Determinan - Adjoin Matrik - Invers Matrik - Sistem Persaman lInier dengan Penyelsain Menggunakan Matrik Invers
+# TUGAS UTS Eliminasi Gausian - Determinan - Adjoin Matrik 
 
 ## 1\. Matriks A
 
