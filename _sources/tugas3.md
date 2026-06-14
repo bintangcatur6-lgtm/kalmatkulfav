@@ -1,156 +1,242 @@
-# Tugas Eliminasi Gauss
+# TUGAS UTS Eliminasi Gausian - Determinan - Adjoin Matrik - Invers Matrik - Sistem Persaman lInier dengan Penyelsain Menggunakan Matrik Invers
 
-## 1. Sistem Persamaan Linear (SPL) 
+## 1\. Matriks A
 
-$$\begin{aligned}
-x_1 + x_2 + x_3 + x_4 + x_5 &= 15 \\
-2x_1 + x_2 + x_3 + x_4 + x_5 &= 16 \\
-2x_1 + 2x_2 + x_3 + x_4 + x_5 &= 18 \\
-2x_1 + 2x_2 + 2x_3 + x_4 + x_5 &= 21 \\
-2x_1 + 2x_2 + 2x_3 + 2x_4 + x_5 &= 25
-\end{aligned}$$
+$$
+A =
+\begin{bmatrix}
+a & b & c & d & e \\
+f & g & h & i & j \\
+k & l & m & n & o \\
+p & q & r & s & t \\
+u & v & w & x & y
+\end{bmatrix}
+$$
 
-## 2. Matriks Augmented 
+## 2\. Determinan Matriks 5×5
 
-$$\left[
-\begin{array}{ccccc|c}
-1 & 1 & 1 & 1 & 1 & 15 \\
-2 & 1 & 1 & 1 & 1 & 16 \\
-2 & 2 & 1 & 1 & 1 & 18 \\
-2 & 2 & 2 & 1 & 1 & 21 \\
-2 & 2 & 2 & 2 & 1 & 25
+Menggunakan ekspansi kofaktor pada baris pertama:
+
+$$
+\det(A) = aC_{11} - bC_{12} + cC_{13} - dC_{14} + eC_{15}
+$$
+
+Dengan:
+
+$$
+C_{ij} = (-1)^{i+j} \, M_{ij}
+$$
+
+## 3\. Matriks Adjoin (adj A)
+
+adj(A) = transpose dari matriks kofaktor
+
+Bentuk matriksnya:
+
+$$
+\text{adj}(A) =
+\begin{bmatrix}
+C_{11} & C_{21} & C_{31} & C_{41} & C_{51} \\
+C_{12} & C_{22} & C_{32} & C_{42} & C_{52} \\
+C_{13} & C_{23} & C_{33} & C_{43} & C_{53} \\
+C_{14} & C_{24} & C_{34} & C_{44} & C_{54} \\
+C_{15} & C_{25} & C_{35} & C_{45} & C_{55}
+\end{bmatrix}
+$$
+
+## 4\. Invers Matriks
+
+$$
+A^{-1} = \frac{1}{\det(A)} \, \text{adj}(A)
+$$
+
+## 5\. Syarat Invers
+
+$$
+\det(A) \neq 0
+$$
+
+Jika: det(A) = 0 → A tidak memiliki invers
+
+
+
+## 6.Bentuk Perhitungan determinannya dari eliminasi gauss
+
+### 1. Matriks A
+
+Diketahui matriks:
+$
+A =
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 \\
+2 & 1 & 0 & 0 & 0 \\
+0 & 3 & 1 & 0 & 0 \\
+0 & 0 & 4 & 1 & 0 \\
+0 & 0 & 0 & 5 & 1
+\end{bmatrix}
+$
+
+Matriks di atas merupakan matriks segitiga bawah (lower triangular),
+karena semua elemen di atas diagonal utama bernilai nol.
+
+### 2. Determinan Matriks (dengan penjelasan)
+
+Diketahui:
+$
+A =
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 \\
+2 & 1 & 0 & 0 & 0 \\
+0 & 3 & 1 & 0 & 0 \\
+0 & 0 & 4 & 1 & 0 \\
+0 & 0 & 0 & 5 & 1
+\end{bmatrix}
+$
+
+Karena matriks merupakan matriks segitiga bawah, maka determinannya adalah hasil kali elemen diagonal utama:
+
+### 3. Mencari Invers dengan Eliminasi Gauss-Jordan
+
+Gabungkan matriks A dengan matriks identitas:
+
+
+
+$\Rightarrow
+\left[
+\begin{array}{ccccc|ccccc}
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & -2 & 1 & 0 & 0 & 0 \\
+0 & 3 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 4 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 5 & 1 & 0 & 0 & 0 & 0 & 1
 \end{array}
-\right]$$
+\right]$
 
-## 3. Eliminasi Gauss (OBE) 
+#### Langkah 1: Hilangkan elemen di bawah pivot kolom 1
 
-### Langkah 1 
+$
+R_2 \leftarrow R_2 - 2R_1
+$
 
-Hilangkan elemen di bawah pivot pertama
+$\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & -2 & 1 & 0 & 0 & 0 \\
+0 & 3 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 4 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 5 & 1 & 0 & 0 & 0 & 0 & 1
+\end{bmatrix}$
 
-$$\begin{aligned}
-R_2 &= R_2 - 2R_1 \\
-R_3 &= R_3 - 2R_1 \\
-R_4 &= R_4 - 2R_1 \\
-R_5 &= R_5 - 2R_1
-\end{aligned}$$
+#### Langkah 2: Hilangkan elemen di bawah pivot kolom 2
 
-Hasil
+$
+R_3 \leftarrow R_3 - 3R_2
+$
 
-$$\left[
-\begin{array}{ccccc|c}
-1 & 1 & 1 & 1 & 1 & 15 \\
-0 & -1 & -1 & -1 & -1 & -14 \\
-0 & 0 & -1 & -1 & -1 & -12 \\
-0 & 0 & 0 & -1 & -1 & -9 \\
-0 & 0 & 0 & 0 & -1 & -5
+$\Rightarrow
+\left[
+\begin{array}{ccccc|ccccc}
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & -2 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 6 & -3 & 1 & 0 & 0 \\
+0 & 0 & 4 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 5 & 1 & 0 & 0 & 0 & 0 & 1
 \end{array}
-\right]$$
+\right]$
 
-### Langkah 2 
+#### Langkah 3: Hilangkan elemen di bawah pivot kolom 3
 
-Ubah pivot menjadi 1
+$
+R_4 \leftarrow R_4 - 4R_3
+$
 
-$$\begin{aligned}
-R_2 &= -R_2 \\
-R_3 &= -R_3 \\
-R_4 &= -R_4 \\
-R_5 &= -R_5
-\end{aligned}$$
 
-Hasil
-
-$$\left[
-\begin{array}{ccccc|c}
-1 & 1 & 1 & 1 & 1 & 15 \\
-0 & 1 & 1 & 1 & 1 & 14 \\
-0 & 0 & 1 & 1 & 1 & 12 \\
-0 & 0 & 0 & 1 & 1 & 9 \\
-0 & 0 & 0 & 0 & 1 & 5
+$\Rightarrow
+\left[
+\begin{array}{ccccc|ccccc}
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & -2 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 6 & -3 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & -24 & 12 & -4 & 1 & 0 \\
+0 & 0 & 0 & 5 & 1 & 0 & 0 & 0 & 0 & 1
 \end{array}
-\right]$$
+\right]$
 
-### Langkah 3 
 
-Hilangkan elemen di atas pivot kelima
 
-$$\begin{aligned}
-R_4 &= R_4 - R_5 \\
-R_3 &= R_3 - R_5 \\
-R_2 &= R_2 - R_5 \\
-R_1 &= R_1 - R_5
-\end{aligned}$$
+#### Langkah 4: Hilangkan elemen di bawah pivot kolom 4
 
-Hasil
+$
+R_5 \leftarrow R_5 - 5R_4
+$
 
-$$\left[
-\begin{array}{ccccc|c}
-1 & 1 & 1 & 1 & 0 & 10 \\
-0 & 1 & 1 & 1 & 0 & 9 \\
-0 & 0 & 1 & 1 & 0 & 7 \\
-0 & 0 & 0 & 1 & 0 & 4 \\
-0 & 0 & 0 & 0 & 1 & 5
+$\Rightarrow
+\left[
+\begin{array}{ccccc|ccccc}
+1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & -2 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 6 & -3 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & -24 & 12 & -4 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 & 120 & -60 & 20 & -5 & 1
 \end{array}
-\right]$$
+\right]$
 
-### Langkah 4 
 
-Hilangkan elemen di atas pivot keempat
+### 4. Hasil Invers
 
-$$\begin{aligned}
-R_3 &= R_3 - R_4 \\
-R_2 &= R_2 - R_4 \\
-R_1 &= R_1 - R_4
-\end{aligned}$$
+Karena sisi kiri sudah menjadi matriks identitas, maka diperoleh:
 
-Hasil
+$
+A{^-1} =
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 \\
+-2 & 1 & 0 & 0 & 0 \\
+6 & -3 & 1 & 0 & 0 \\
+-24 & 12 & -4 & 1 & 0 \\
+120 & -60 & 20 & -5 & 1
+\end{bmatrix}
+$
 
-$$\left[
-\begin{array}{ccccc|c}
-1 & 1 & 1 & 0 & 0 & 6 \\
-0 & 1 & 1 & 0 & 0 & 5 \\
-0 & 0 & 1 & 0 & 0 & 3 \\
-0 & 0 & 0 & 1 & 0 & 4 \\
-0 & 0 & 0 & 0 & 1 & 5
-\end{array}
-\right]$$
+### 5. Matriks Adjoin
 
-### Langkah 5 
+Gunakan hubungan:
+$\text{adj}(A) = \det(A) \cdot A^{-1}$
 
-Hilangkan elemen di atas pivot ketiga
+Karena:
+$\
+\det(A) = 1
+$
 
-$$\begin{aligned}
-R_2 &= R_2 - R_3 \\
-R_1 &= R_1 - R_3
-\end{aligned}$$
+Maka:
+$
+\text{adj}(A) = A^{-1}
+$
 
-Hasil
+### 6. Jawaban Akhir (Ringkas)
 
-$$\left[
-\begin{array}{ccccc|c}
-1 & 1 & 0 & 0 & 0 & 3 \\
-0 & 1 & 0 & 0 & 0 & 2 \\
-0 & 0 & 1 & 0 & 0 & 3 \\
-0 & 0 & 0 & 1 & 0 & 4 \\
-0 & 0 & 0 & 0 & 1 & 5
-\end{array}
-\right]$$
+1. Determinan
+$
+\det(A) = 1
+$
 
-### Langkah 6 
+2. Adjoin
+$
+\text{adj}(A) =
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 \\
+-2 & 1 & 0 & 0 & 0 \\
+6 & -3 & 1 & 0 & 0 \\
+-24 & 12 & -4 & 1 & 0 \\
+120 & -60 & 20 & -5 & 1
+\end{bmatrix}
+$
 
-Hilangkan elemen di atas pivot kedua
+3. Invers
+$
+A^{-1} = \text{adj}(A)
+$
 
-$$R_1 = R_1 - R_2$$
 
-### Hasil Akhir 
 
-$$\left[
-\begin{array}{ccccc|c}
-1 & 0 & 0 & 0 & 0 & 1 \\
-0 & 1 & 0 & 0 & 0 & 2 \\
-0 & 0 & 1 & 0 & 0 & 3 \\
-0 & 0 & 0 & 1 & 0 & 4 \\
-0 & 0 & 0 & 0 & 1 & 5
-\end{array}
-\right]$$
+
+
 
